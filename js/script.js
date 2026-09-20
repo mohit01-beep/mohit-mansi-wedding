@@ -1,14 +1,14 @@
+```javascript
 const openButton = document.getElementById("openInvitation");
 const invitationContent = document.getElementById("invitationContent");
 
 openButton.addEventListener("click", () => {
 
-    invitationContent.classList.add("visible");
+    document.body.classList.add("invitation-open");
 
-    setTimeout(() => {
-        invitationContent.scrollIntoView({
-            behavior: "smooth"
-        });
-    }, 300);
+    invitationContent.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 
 });
