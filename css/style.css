@@ -1,674 +1,243 @@
-:root {
-    --ivory: #f5f0e7;
-    --ivory-dark: #eee7da;
-    --maroon: #57282f;
-    --maroon-dark: #421e24;
-    --gold: #a48650;
-    --gold-light: #c5ad7d;
-    --text: #493b3a;
-    --muted: #806f6c;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: var(--ivory);
-    color: var(--text);
-    font-family: "DM Sans", sans-serif;
-}
-
-button {
-    font-family: inherit;
-}
-
-.invitation {
-    width: 100%;
-    overflow: hidden;
-}
-
-
 /* =========================
-   PAGE LOADER
+   WEDDING EVENTS
 ========================= */
 
-.page-loader {
-    position: fixed;
-    inset: 0;
+.events {
+    max-width: 760px;
 
-    z-index: 9999;
+    margin: auto;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: var(--ivory);
-
-    animation: loaderOut 1s ease 1.2s forwards;
-    pointer-events: none;
+    padding: 130px 25px;
 }
 
-.page-loader span {
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: var(--gold);
-
-    animation: pulse 1s ease infinite;
-}
-
-@keyframes pulse {
-    50% {
-        transform: scale(2);
-        opacity: 0.4;
-    }
-}
-
-@keyframes loaderOut {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    position: relative;
-
-    min-height: 100svh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 50px 25px;
-
+.events-header {
     text-align: center;
 
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(164, 134, 80, 0.055),
-            transparent 55%
-        );
+    margin-bottom: 85px;
 }
 
-
-/* =========================
-   CORNER ORNAMENTS
-========================= */
-
-.corner {
-    position: absolute;
-
-    width: 95px;
-    height: 95px;
-
-    opacity: 0.65;
-}
-
-.corner::before,
-.corner::after {
-    content: "";
-
-    position: absolute;
-
-    border-color: var(--gold);
-    border-style: solid;
-}
-
-.corner-top-left {
-    top: 24px;
-    left: 24px;
-}
-
-.corner-top-left::before {
-    width: 55px;
-    height: 55px;
-
-    border-width: 1px 0 0 1px;
-}
-
-.corner-top-left::after {
-    width: 25px;
-    height: 25px;
-
-    left: 10px;
-    top: 10px;
-
-    border-width: 1px 0 0 1px;
-}
-
-.corner-top-right {
-    top: 24px;
-    right: 24px;
-}
-
-.corner-top-right::before {
-    width: 55px;
-    height: 55px;
-
-    right: 0;
-
-    border-width: 1px 1px 0 0;
-}
-
-.corner-top-right::after {
-    width: 25px;
-    height: 25px;
-
-    right: 10px;
-    top: 10px;
-
-    border-width: 1px 1px 0 0;
-}
-
-.corner-bottom-left {
-    bottom: 24px;
-    left: 24px;
-}
-
-.corner-bottom-left::before {
-    width: 55px;
-    height: 55px;
-
-    bottom: 0;
-
-    border-width: 0 0 1px 1px;
-}
-
-.corner-bottom-left::after {
-    width: 25px;
-    height: 25px;
-
-    left: 10px;
-    bottom: 10px;
-
-    border-width: 0 0 1px 1px;
-}
-
-.corner-bottom-right {
-    bottom: 24px;
-    right: 24px;
-}
-
-.corner-bottom-right::before {
-    width: 55px;
-    height: 55px;
-
-    right: 0;
-    bottom: 0;
-
-    border-width: 0 1px 1px 0;
-}
-
-.corner-bottom-right::after {
-    width: 25px;
-    height: 25px;
-
-    right: 10px;
-    bottom: 10px;
-
-    border-width: 0 1px 1px 0;
-}
-
-
-/* =========================
-   HERO CONTENT
-========================= */
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-
-    width: 100%;
-    max-width: 650px;
-}
-
-.eyebrow {
-    font-size: 9px;
-    letter-spacing: 4px;
-    font-weight: 500;
-
-    color: var(--gold);
-}
-
-.top-symbol {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 12px;
-
-    margin-bottom: 28px;
-}
-
-.top-symbol span {
-    width: 35px;
-    height: 1px;
-
-    background: var(--gold);
-}
-
-.top-symbol i {
-    font-size: 12px;
-    font-style: normal;
-    color: var(--gold);
-}
-
-
-/* =========================
-   NAMES
-========================= */
-
-.names {
-    margin-top: 38px;
-}
-
-.names h1 {
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: clamp(78px, 19vw, 125px);
-
-    line-height: 0.72;
-
-    font-weight: 500;
-
-    color: var(--maroon);
-
-    letter-spacing: -2px;
-}
-
-.ampersand {
-    position: relative;
-
-    margin: 27px 0;
-
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: 43px;
-
-    line-height: 1;
-
-    color: var(--gold);
-}
-
-.divider {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 12px;
-
-    margin: 40px 0 20px;
-}
-
-.divider span {
-    width: 42px;
-    height: 1px;
-
-    background: var(--gold-light);
-}
-
-.divider i {
-    font-size: 8px;
-    color: var(--gold);
-
-    font-style: normal;
-}
-
-.getting-married {
-    font-size: 9px;
-    letter-spacing: 5px;
-
-    color: var(--muted);
-}
-
-
-/* =========================
-   DATE
-========================= */
-
-.date {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 14px;
-
-    margin: 32px 0 42px;
-
-    color: var(--maroon);
-}
-
-.date > span {
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: 47px;
-
-    line-height: 1;
-
-    font-weight: 500;
-}
-
-.date div {
-    display: flex;
-    flex-direction: column;
-
-    text-align: left;
-
-    padding-left: 14px;
-
-    border-left: 1px solid var(--gold-light);
-}
-
-.date small {
-    font-size: 8px;
-
-    letter-spacing: 3px;
-
-    line-height: 1.7;
-
-    color: var(--muted);
-}
-
-
-/* =========================
-   BUTTON
-========================= */
-
-.open-button {
-    position: relative;
-
-    display: inline-flex;
-    align-items: center;
-
-    gap: 18px;
-
-    padding: 15px 22px;
-
-    background: transparent;
-
-    border: 1px solid var(--gold);
-
-    color: var(--maroon);
-
-    font-size: 9px;
-    letter-spacing: 3px;
-
-    cursor: pointer;
-
-    transition:
-        background 0.35s ease,
-        color 0.35s ease,
-        transform 0.35s ease;
-}
-
-.open-button b {
-    font-size: 15px;
-
-    font-weight: 400;
-
-    transition: transform 0.35s ease;
-}
-
-.open-button:hover {
-    background: var(--maroon);
-
-    color: var(--ivory);
-
-    transform: translateY(-2px);
-}
-
-.open-button:hover b {
-    transform: translateY(4px);
-}
-
-
-/* =========================
-   SCROLL HINT
-========================= */
-
-.scroll-hint {
-    position: absolute;
-
-    bottom: 30px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    display: flex;
-    align-items: center;
-
-    gap: 8px;
-
-    font-size: 7px;
-    letter-spacing: 3px;
-
-    color: var(--muted);
-}
-
-.scroll-hint span {
-    width: 1px;
-    height: 22px;
-
-    background: var(--gold);
-
-    animation: scrollLine 1.8s ease infinite;
-}
-
-@keyframes scrollLine {
-    50% {
-        transform: scaleY(0.45);
-        opacity: 0.3;
-    }
-}
-
-
-/* =========================
-   REVEAL ANIMATIONS
-========================= */
-
-.reveal {
-    opacity: 0;
-
-    transform: translateY(20px);
-
-    animation: reveal 0.9s ease forwards;
-}
-
-.reveal-1 {
-    animation-delay: 1.4s;
-}
-
-.reveal-2 {
-    animation-delay: 1.65s;
-}
-
-.reveal-3 {
-    animation-delay: 1.95s;
-}
-
-.reveal-4 {
-    animation-delay: 2.2s;
-}
-
-.reveal-5 {
-    animation-delay: 2.45s;
-}
-
-@keyframes reveal {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* =========================
-   CONTENT
-========================= */
-
-.content {
-    display: block;
-
-    background: var(--ivory);
-}
-
-
-/* =========================
-   SECTIONS
-========================= */
-
-.section {
-    position: relative;
-
-    padding: 120px 25px;
-
-    text-align: center;
-}
-
-.welcome {
-    min-height: 80vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.section-decoration {
-    color: var(--gold);
-
-    font-size: 12px;
-
-    margin-bottom: 30px;
-}
-
-.section h2 {
+.events-header h2 {
     font-family: "Cormorant Garamond", serif;
 
     color: var(--maroon);
 
-    font-size: clamp(48px, 12vw, 72px);
+    font-size: clamp(55px, 13vw, 82px);
+
+    line-height: 0.82;
 
     font-weight: 500;
-
-    line-height: 0.9;
-
-    margin: 28px 0;
-}
-
-.small-divider {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
 
     margin: 30px 0;
 }
 
-.small-divider span {
-    width: 35px;
-    height: 1px;
-
-    background: var(--gold-light);
-}
-
-.small-divider i {
-    font-style: normal;
-
-    color: var(--gold);
-
-    font-size: 8px;
-}
-
-.intro-text {
-    max-width: 410px;
-
-    font-size: 13px;
-
-    line-height: 1.9;
-
-    color: var(--muted);
-}
-
 
 /* =========================
-   TEMPORARY NEXT SECTION
+   EVENT DATE
 ========================= */
 
-.coming-next {
-    min-height: 50vh;
+.event-date {
+    display: flex;
+    align-items: center;
 
-    background: var(--ivory-dark);
+    gap: 22px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid rgba(164, 134, 80, 0.4);
+
+    margin-bottom: 5px;
 }
 
-.coming-next h2 {
-    margin-top: 30px;
-}
-
-.coming-next > p:last-child {
-    color: var(--gold);
-
-    font-size: 10px;
-
-    letter-spacing: 3px;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    padding: 100px 25px;
-
-    text-align: center;
-
-    background: var(--maroon);
-
-    color: var(--ivory);
-}
-
-.footer-symbol {
-    color: var(--gold-light);
-
-    margin-bottom: 25px;
-}
-
-footer h2 {
+.date-number {
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 52px;
+    color: var(--maroon);
+
+    font-size: 72px;
+
+    line-height: 0.8;
 
     font-weight: 500;
 }
 
-footer p {
-    margin-top: 18px;
+.date-details strong,
+.date-details span {
+    display: block;
+}
 
-    font-size: 9px;
+.date-details strong {
+    color: var(--maroon);
 
-    letter-spacing: 4px;
+    font-size: 11px;
 
-    color: var(--gold-light);
+    letter-spacing: 3px;
+}
+
+.date-details span {
+    margin-top: 6px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   EVENT CARDS
+========================= */
+
+.event-list {
+    margin-bottom: 95px;
+}
+
+.event-card {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 45px 1fr 30px;
+
+    gap: 10px;
+
+    padding: 32px 8px;
+
+    border-bottom: 1px solid rgba(84, 37, 43, 0.11);
+
+    transition:
+        padding-left 0.35s ease,
+        background 0.35s ease;
+}
+
+.event-card:hover {
+    padding-left: 18px;
+
+    background: rgba(164, 134, 80, 0.035);
+}
+
+.event-index {
+    padding-top: 4px;
+
+    color: var(--gold);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.event-type {
+    color: var(--gold);
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 7px;
+}
+
+.event-info h3 {
+    font-family: "Cormorant Garamond", serif;
+
+    color: var(--maroon);
+
+    font-size: 38px;
+
+    font-weight: 500;
+
+    line-height: 0.9;
+}
+
+.event-description {
+    margin-top: 9px;
+
+    color: var(--muted);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 17px;
+
+    font-style: italic;
+}
+
+.event-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.event-meta span {
+    color: var(--muted);
+
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+}
+
+.event-meta span + span {
+    padding-left: 15px;
+
+    border-left: 1px solid var(--gold-light);
+}
+
+.event-symbol {
+    align-self: center;
+
+    color: var(--gold);
+
+    font-size: 8px;
+
+    transition: transform 0.4s ease;
+}
+
+.event-card:hover .event-symbol {
+    transform: rotate(90deg);
+}
+
+
+/* =========================
+   WEDDING DAY
+========================= */
+
+.wedding-date {
+    margin-bottom: 25px;
+
+    padding-top: 15px;
+}
+
+.wedding-event {
+    border: 1px solid rgba(164, 134, 80, 0.55);
+
+    padding: 40px 22px;
+
+    background:
+        radial-gradient(
+            circle at 90% 50%,
+            rgba(164, 134, 80, 0.08),
+            transparent 45%
+        );
+}
+
+.wedding-event:hover {
+    padding-left: 22px;
+}
+
+.wedding-event .event-info h3 {
+    font-size: 46px;
+}
+
+.wedding-symbol {
+    align-self: center;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 28px;
+
+    color: var(--gold);
 }
 
 
@@ -678,46 +247,46 @@ footer p {
 
 @media (max-width: 480px) {
 
-    .hero {
-        padding: 40px 20px;
+    .events {
+        padding: 100px 20px;
     }
 
-    .corner {
-        width: 70px;
-        height: 70px;
+    .events-header {
+        margin-bottom: 65px;
     }
 
-    .corner-top-left,
-    .corner-top-right {
-        top: 18px;
+    .date-number {
+        font-size: 62px;
     }
 
-    .corner-bottom-left,
-    .corner-bottom-right {
-        bottom: 18px;
+    .event-card {
+        grid-template-columns: 32px 1fr 20px;
+
+        padding: 27px 4px;
     }
 
-    .corner-top-left,
-    .corner-bottom-left {
-        left: 18px;
+    .event-info h3 {
+        font-size: 34px;
     }
 
-    .corner-top-right,
-    .corner-bottom-right {
-        right: 18px;
+    .wedding-event .event-info h3 {
+        font-size: 40px;
     }
 
-    .names h1 {
-        font-size: 82px;
+    .event-description {
+        font-size: 15px;
     }
 
-    .ampersand {
-        font-size: 35px;
-        margin: 25px 0;
+    .event-meta {
+        flex-direction: column;
+
+        gap: 8px;
     }
 
-    .scroll-hint {
-        bottom: 18px;
+    .event-meta span + span {
+        padding-left: 0;
+
+        border-left: none;
     }
 
 }
