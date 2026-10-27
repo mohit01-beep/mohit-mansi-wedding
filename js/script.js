@@ -5,6 +5,13 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    // Dedicated WhatsApp Host Number for direct RSVPs
+    const HOST_WHATSAPP_NUMBER = "918076469889";
+
+    // Optional: Google Apps Script Web App URL for real-time global Google Sheet sync
+    // Set this URL when you create your Google Sheet Web App (100% free)
+    const GOOGLE_SHEET_ENDPOINT = ""; 
+
     /* ========================================================
        1. CORE NAVIGATION & HERO OPEN
     ======================================================== */
@@ -288,7 +295,6 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = 0; i < count; i++) {
             petals.push(new Petal(true));
         }
-        // Limit max active particles
         if (petals.length > 80) {
             petals = petals.slice(petals.length - 80);
         }
@@ -318,6 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ========================================================
        6. BLESSINGS WALL & RSVP GUESTBOOK
+       Supports LocalStorage + Optional Live Google Sheets Sync
     ======================================================== */
     const defaultWishes = [
         {
@@ -339,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const STORAGE_KEY = "mohit_mansi_wedding_wishes";
 
-    function loadWishes() {
+    function loadLocalWishes() {
         try {
             const saved = localStorage.getItem(STORAGE_KEY);
             return saved ? JSON.parse(saved) : defaultWishes;
@@ -356,12 +363,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function renderWishes() {
+    function renderWishes(wishesToDisplay) {
         const stream = document.getElementById("wishesStream");
         const countBadge = document.getElementById("wishesCount");
         if (!stream) return;
 
-        const currentWishes = loadWishes();
+        const currentWishes = wishesToDisplay || loadLocalWishes();
         if (countBadge) {
             countBadge.textContent = `${currentWishes.length} ${currentWishes.length === 1 ? 'Wish' : 'Wishes'}`;
         }
@@ -387,7 +394,21 @@ document.addEventListener("DOMContentLoaded", () => {
             .replace(/'/g, "&#039;");
     }
 
+    // Initial render from local cache
     renderWishes();
+
+    // Fetch from Google Sheet if configured
+    if (GOOGLE_SHEET_ENDPOINT) {
+        fetch(GOOGLE_SHEET_ENDPOINT)
+            .then(res => res.json())
+            .then(data => {
+                if (Array.isArray(data) && data.length > 0) {
+                    renderWishes(data);
+                    saveWishesToStorage(data);
+                }
+            })
+            .catch(err => console.log("Google Sheets sync offline, using local data", err));
+    }
 
     // Form Interactions
     const saveWishBtn = document.getElementById("saveWishBtn");
@@ -402,6 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const name = (inputName ? inputName.value : "").trim();
             const msg = (inputMessage ? inputMessage.value : "").trim();
             const status = inputStatus ? inputStatus.value : "Joyfully Attending";
+            const count = inputCount ? inputCount.value : "2";
 
             if (!name) {
                 showToast("Please enter your name!");
@@ -415,39 +437,50 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            const current = loadWishes();
-            current.unshift({
-                name: name,
-                status: status,
-                msg: msg
-            });
+            const newWish = { name, status, msg };
+            const current = loadLocalWishes();
+            current.unshift(newWish);
 
             saveWishesToStorage(current);
-            renderWishes();
+            renderWishes(current);
             triggerPetalBurst(25);
-            showToast("✨ Blessing added to the wall! Thank you!");
+            showToast("✨ Blessing added! Tap WhatsApp to notify Mohit!");
 
-            // Clear inputs
+            // Send to Google Sheet in background if configured
+            if (GOOGLE_SHEET_ENDPOINT) {
+                try {
+                    fetch(GOOGLE_SHEET_ENDPOINT, {
+                        method: "POST",
+                        mode: "no-cors",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ name, status, count, msg, timestamp: new Date().toISOString() })
+                    }).catch(e => console.log("Google Sheet sync error", e));
+                } catch (e) {}
+            }
+
+            // Clear input message
             if (inputMessage) inputMessage.value = "";
         });
     }
 
+    // WhatsApp Direct RSVP to Mohit
     if (whatsappRsvpBtn) {
         whatsappRsvpBtn.addEventListener("click", () => {
             const name = (inputName ? inputName.value : "").trim() || "Guest";
             const status = inputStatus ? inputStatus.value : "Joyfully Attending";
             const count = inputCount ? inputCount.value : "2";
-            const msg = (inputMessage ? inputMessage.value : "").trim() || "Congratulations to Mohit & Mansi!";
+            const msg = (inputMessage ? inputMessage.value : "").trim() || "Heartiest congratulations to Mohit & Mansi!";
 
             const text = `✨ *Wedding RSVP — Mohit & Mansi* ✨\n\n` +
                          `*Name:* ${name}\n` +
                          `*Status:* ${status}\n` +
-                         `*Guests:* ${count}\n` +
-                         `*Message / Blessing:* "${msg}"\n\n` +
+                         `*Number of Guests:* ${count}\n` +
+                         `*Wishes & Blessings:* "${msg}"\n\n` +
                          `Looking forward to celebrating with you at Kaka Place! 🌸`;
 
             const encoded = encodeURIComponent(text);
-            window.open(`https://api.whatsapp.com/send?text=${encoded}`, "_blank");
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${HOST_WHATSAPP_NUMBER}&text=${encoded}`;
+            window.open(whatsappUrl, "_blank");
         });
     }
 
