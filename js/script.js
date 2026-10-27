@@ -8,9 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Dedicated WhatsApp Host Number for direct RSVPs
     const HOST_WHATSAPP_NUMBER = "918076469889";
 
-    // Optional: Google Apps Script Web App URL for real-time global Google Sheet sync
-    // Set this URL when you create your Google Sheet Web App (100% free)
-    const GOOGLE_SHEET_ENDPOINT = ""; 
+    // Google Apps Script Web App URL for real-time global Google Sheet sync
+    const GOOGLE_SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbzJvrNZ_Gz3qYxMwFUEUwMz-GXZPFmlo3BmowOqwAtLyOXEAZzzg5ZNq0C8iaU_qflD/exec"; 
 
     /* ========================================================
        1. CORE NAVIGATION & HERO OPEN
@@ -63,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
         const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const minutes = Math.floor((difference % (1000 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
         if (elDays) elDays.textContent = String(days).padStart(2, "0");
@@ -324,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ========================================================
        6. BLESSINGS WALL & RSVP GUESTBOOK
-       Supports LocalStorage + Optional Live Google Sheets Sync
+       Connected to Google Sheets Web App + LocalStorage Cache
     ======================================================== */
     const defaultWishes = [
         {
@@ -397,14 +396,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initial render from local cache
     renderWishes();
 
-    // Fetch from Google Sheet if configured
+    // Fetch live wishes from Google Sheet on page load
     if (GOOGLE_SHEET_ENDPOINT) {
         fetch(GOOGLE_SHEET_ENDPOINT)
             .then(res => res.json())
             .then(data => {
-                if (Array.isArray(data) && data.length > 0) {
-                    renderWishes(data);
-                    saveWishesToStorage(data);
+                if (Array.isArray(data)) {
+                    // Combine Google Sheet rows with default pre-seeded wishes if fewer than 3
+                    const combined = [...data];
+                    defaultWishes.forEach(dw => {
+                        if (!combined.some(c => c.name === dw.name && c.msg === dw.msg)) {
+                            combined.push(dw);
+                        }
+                    });
+                    renderWishes(combined);
+                    saveWishesToStorage(combined);
                 }
             })
             .catch(err => console.log("Google Sheets sync offline, using local data", err));
@@ -446,7 +452,7 @@ document.addEventListener("DOMContentLoaded", () => {
             triggerPetalBurst(25);
             showToast("✨ Blessing added! Tap WhatsApp to notify Mohit!");
 
-            // Send to Google Sheet in background if configured
+            // Send to Google Sheet in background
             if (GOOGLE_SHEET_ENDPOINT) {
                 try {
                     fetch(GOOGLE_SHEET_ENDPOINT, {
