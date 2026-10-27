@@ -242,16 +242,17 @@ button {
 
 .hero-mandala {
     position: absolute;
-    width: clamp(340px, 85vw, 620px);
-    height: clamp(340px, 85vw, 620px);
+    width: clamp(380px, 92vw, 680px);
+    height: clamp(380px, 92vw, 680px);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: var(--gold);
-    opacity: 0.15;
+    color: #a48650;
+    opacity: 0.45;
+    filter: drop-shadow(0 0 14px rgba(164, 134, 80, 0.35));
     pointer-events: none;
     z-index: 1;
-    animation: rotateMandala 160s linear infinite;
+    animation: rotateMandala 50s linear infinite;
 }
 
 @keyframes rotateMandala {
