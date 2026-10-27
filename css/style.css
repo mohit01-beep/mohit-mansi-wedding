@@ -32,7 +32,15 @@ html {
 }
 
 body {
-    background: var(--ivory);
+    background-color: var(--ivory);
+    background-image: 
+        radial-gradient(circle at 50% 0%, rgba(197, 173, 125, 0.22) 0%, transparent 60%),
+        radial-gradient(circle at 100% 35%, rgba(87, 40, 47, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 0% 65%, rgba(164, 134, 80, 0.09) 0%, transparent 50%),
+        radial-gradient(circle at 85% 95%, rgba(87, 40, 47, 0.07) 0%, transparent 45%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23a48650' stroke-width='0.65' stroke-opacity='0.12'%3E%3Cpath d='M32 0 C24 12 24 20 32 32 C40 20 40 12 32 0 Z'/%3E%3Cpath d='M0 32 C12 24 20 24 32 32 C20 40 12 40 0 32 Z'/%3E%3Cpath d='M32 32 C24 44 24 52 32 64 C40 52 40 44 32 32 Z'/%3E%3Cpath d='M32 32 C44 24 52 24 64 32 C52 40 44 40 32 32 Z'/%3E%3Ccircle cx='32' cy='32' r='3.2'/%3E%3Ccircle cx='0' cy='0' r='2.5'/%3E%3Ccircle cx='64' cy='0' r='2.5'/%3E%3Ccircle cx='0' cy='64' r='2.5'/%3E%3Ccircle cx='64' cy='64' r='2.5'/%3E%3Cpath d='M0 0 L10 10 M64 0 L54 10 M0 64 L10 54 M64 64 L54 54' stroke-opacity='0.08'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: auto, auto, auto, auto, 64px 64px;
     color: var(--text);
     font-family: "DM Sans", sans-serif;
     line-height: 1.6;
@@ -207,12 +215,48 @@ button {
     justify-content: center;
     padding: 60px 25px;
     text-align: center;
+    overflow: hidden;
     background:
         radial-gradient(
             circle at center,
-            rgba(164, 134, 80, 0.07),
-            transparent 65%
+            rgba(197, 173, 125, 0.2) 0%,
+            rgba(164, 134, 80, 0.08) 45%,
+            transparent 72%
         );
+}
+
+.hero-frame {
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(164, 134, 80, 0.28);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-frame::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px dashed rgba(164, 134, 80, 0.16);
+}
+
+.hero-mandala {
+    position: absolute;
+    width: clamp(340px, 85vw, 620px);
+    height: clamp(340px, 85vw, 620px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--gold);
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+    animation: rotateMandala 160s linear infinite;
+}
+
+@keyframes rotateMandala {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* Corner Ornaments */
