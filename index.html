@@ -5,29 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="theme-color" content="#f5f0e7">
+    <meta name="description" content="Mohit & Mansi Wedding Invitation · 18 January 2027 · Kaka Place">
+
+    <!-- Open Graph for WhatsApp, Instagram, Facebook sharing -->
+    <meta property="og:title" content="Mohit & Mansi | Wedding Invitation">
+    <meta property="og:description" content="Together with their families, Mohit & Mansi invite you to celebrate the beginning of their forever on 18 January 2027.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mohit01-beep.github.io/mohit-mansi-wedding/">
 
     <title>Mohit & Mansi | 18 January 2027</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <div class="page-loader">
+    <!-- Canvas for Floating Petals -->
+    <canvas id="petalCanvas"></canvas>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
         <span></span>
     </div>
+
+    <!-- Floating Quick Actions -->
+    <aside class="floating-controls" aria-label="Celebration Controls">
+        <button id="musicToggle" class="floating-btn" title="Toggle Ambient Music" aria-label="Toggle music">
+            <span class="music-icon">
+                <i class="bar"></i>
+                <i class="bar"></i>
+                <i class="bar"></i>
+            </span>
+            <span class="btn-tooltip">Music</span>
+        </button>
+
+        <button id="petalBtn" class="floating-btn" title="Shower Petals" aria-label="Shower petals">
+            <span class="petal-icon">🌸</span>
+            <span class="btn-tooltip">Blessings</span>
+        </button>
+
+        <button id="shareTopBtn" class="floating-btn" title="Share Invitation" aria-label="Share invitation">
+            <span class="share-icon">✦</span>
+            <span class="btn-tooltip">Share</span>
+        </button>
+    </aside>
 
     <main class="invitation">
 
         <!-- =========================
-             COVER
+             COVER / HERO
         ========================== -->
-
         <section class="hero" id="hero">
 
             <div class="corner corner-top-left"></div>
@@ -42,6 +74,8 @@
                     <i>✦</i>
                     <span></span>
                 </div>
+
+                <p class="shloka-mini reveal reveal-1">॥ श्री गणेशाय नमः ॥</p>
 
                 <p class="eyebrow reveal reveal-1">
                     A NEW CHAPTER BEGINS
@@ -73,7 +107,7 @@
                     </div>
                 </div>
 
-                <button id="openInvitation" class="open-button reveal reveal-5">
+                <button id="openInvitation" class="open-button reveal reveal-5" aria-label="Open Invitation">
                     <span>OPEN INVITATION</span>
                     <b>↓</b>
                 </button>
@@ -91,9 +125,9 @@
         <!-- =========================
              INVITATION CONTENT
         ========================== -->
-
         <section id="invitationContent" class="content">
 
+            <!-- WELCOME / BLESSING SECTION -->
             <section class="welcome section">
 
                 <div class="section-decoration">✦</div>
@@ -113,211 +147,492 @@
 
                 <p class="intro-text">
                     Together with their families,
-                    Mohit & Mansi invite you to celebrate
-                    the beginning of their forever.
+                    <strong>Mohit & Mansi</strong> invite you to celebrate
+                    the auspicious beginning of their forever.
                 </p>
+
+                <!-- Sacred Blessing Card -->
+                <div class="sacred-card">
+                    <p class="sanskrit-text">
+                        मंगलम् भगवान विष्णुः, मंगलम् गरुडध्वजः।<br>
+                        मंगलम् पुण्डरीकाक्षः, मंगलाय तनो हरिः॥
+                    </p>
+                    <p class="translation-text">
+                        "May the divine bless this sacred bond with eternal joy, peace & harmony."
+                    </p>
+                </div>
 
             </section>
 
 
-            <!-- EVENTS WILL BE DEVELOPED IN V3 -->
+            <!-- =========================
+                 ROYAL COUNTDOWN SECTION
+            ========================== -->
+            <section class="countdown-section section">
 
-            <section class="events section">
+                <p class="eyebrow">THE COUNTDOWN</p>
 
-    <div class="events-header">
-        <p class="eyebrow">THE CELEBRATIONS</p>
+                <h2>Counting down<br>to forever.</h2>
 
-        <h2>
-            Wedding<br>
-            festivities.
-        </h2>
-
-        <div class="small-divider">
-            <span></span>
-            <i>✦</i>
-            <span></span>
-        </div>
-    </div>
-
-
-    <!-- =========================
-         17 JANUARY
-    ========================== -->
-
-    <div class="event-date">
-
-        <div class="date-number">17</div>
-
-        <div class="date-details">
-            <strong>JANUARY</strong>
-            <span>SUNDAY · 2027</span>
-        </div>
-
-    </div>
-
-
-    <div class="event-list">
-
-        <article class="event-card">
-
-            <div class="event-index">01</div>
-
-            <div class="event-info">
-                <p class="event-type">TRADITION</p>
-                <h3>Haldi</h3>
-                <p class="event-description">
-                    A day painted in happiness.
-                </p>
-
-                <div class="event-meta">
-                    <span>TIME TO BE ADDED</span>
-                    <span>KAKA PLACE</span>
+                <div class="small-divider">
+                    <span></span>
+                    <i>✦</i>
+                    <span></span>
                 </div>
-            </div>
 
-            <div class="event-symbol">✦</div>
-
-        </article>
-
-
-        <article class="event-card">
-
-            <div class="event-index">02</div>
-
-            <div class="event-info">
-                <p class="event-type">TRADITION</p>
-                <h3>Mandha</h3>
-                <p class="event-description">
-                    The celebrations begin.
-                </p>
-
-                <div class="event-meta">
-                    <span>TIME TO BE ADDED</span>
-                    <span>KAKA PLACE</span>
+                <div class="countdown-grid" id="countdownGrid" aria-live="polite">
+                    <div class="countdown-card">
+                        <span class="countdown-number" id="countDays">--</span>
+                        <span class="countdown-label">DAYS</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-card">
+                        <span class="countdown-number" id="countHours">--</span>
+                        <span class="countdown-label">HOURS</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-card">
+                        <span class="countdown-number" id="countMinutes">--</span>
+                        <span class="countdown-label">MINUTES</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-card">
+                        <span class="countdown-number" id="countSeconds">--</span>
+                        <span class="countdown-label">SECONDS</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="event-symbol">✦</div>
-
-        </article>
-
-
-        <article class="event-card">
-
-            <div class="event-index">03</div>
-
-            <div class="event-info">
-                <p class="event-type">CELEBRATION</p>
-                <h3>Mehndi</h3>
-                <p class="event-description">
-                    Colour, music & celebration.
-                </p>
-
-                <div class="event-meta">
-                    <span>TIME TO BE ADDED</span>
-                    <span>KAKA PLACE</span>
+                <div class="calendar-actions">
+                    <a id="googleCalBtn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mohit+%26+Mansi+Wedding&dates=20270117T043000Z/20270118T183000Z&details=Join+us+in+celebrating+the+wedding+of+Mohit+%26+Mansi!&location=Kaka+Place" target="_blank" rel="noopener noreferrer" class="cal-btn">
+                        <span>📅 Add to Google Calendar</span>
+                    </a>
+                    <button id="iCalBtn" class="cal-btn secondary-btn" type="button">
+                        <span>🍏 Download Apple / iCal</span>
+                    </button>
                 </div>
-            </div>
-
-            <div class="event-symbol">✦</div>
-
-        </article>
-
-
-        <article class="event-card">
-
-            <div class="event-index">04</div>
-
-            <div class="event-info">
-                <p class="event-type">PARTY</p>
-                <h3>DJ Night</h3>
-                <p class="event-description">
-                    Because one night wasn't enough.
-                </p>
-
-                <div class="event-meta">
-                    <span>TIME TO BE ADDED</span>
-                    <span>KAKA PLACE</span>
-                </div>
-            </div>
-
-            <div class="event-symbol">✦</div>
-
-        </article>
-
-    </div>
-
-
-    <!-- =========================
-         18 JANUARY
-    ========================== -->
-
-    <div class="event-date wedding-date">
-
-        <div class="date-number">18</div>
-
-        <div class="date-details">
-            <strong>JANUARY</strong>
-            <span>MONDAY · 2027</span>
-        </div>
-
-    </div>
-
-
-    <article class="event-card wedding-event">
-
-        <div class="event-index">05</div>
-
-        <div class="event-info">
-
-            <p class="event-type">THE BIG DAY</p>
-
-            <h3>The Wedding</h3>
-
-            <p class="event-description">
-                The day we've been waiting for.
-            </p>
-
-            <div class="event-meta">
-                <span>TIME TO BE ADDED</span>
-                <span>KAKA PLACE</span>
-            </div>
-
-        </div>
-
-        <div class="wedding-symbol">
-            ♡
-        </div>
-
-    </article>
-
-</section>
-
-
-                <p class="eyebrow">THE CELEBRATIONS</p>
-
-                <h2>Wedding festivities<br>coming soon.</h2>
-
-                <p>
-                    17 & 18 January 2027
-                </p>
 
             </section>
 
 
+            <!-- =========================
+                 OUR STORY / MILESTONES
+            ========================== -->
+            <section class="story-section section">
+
+                <p class="eyebrow">OUR JOURNEY</p>
+
+                <h2>A love written<br>in the stars.</h2>
+
+                <div class="small-divider">
+                    <span></span>
+                    <i>✦</i>
+                    <span></span>
+                </div>
+
+                <div class="story-timeline">
+
+                    <article class="story-card">
+                        <span class="story-step">01</span>
+                        <div class="story-content">
+                            <h3>The First Spark</h3>
+                            <p>
+                                What began as simple conversations quickly became hours of unhurried stories, laughter, and an unspoken feeling that home isn't a place—it's a person.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="story-card">
+                        <span class="story-step">02</span>
+                        <div class="story-content">
+                            <h3>Growing Together</h3>
+                            <p>
+                                Through shared dreams, quiet support, and countless memories, friendship bloomed into a deep, unwavering partnership ready to weather every season.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="story-card">
+                        <span class="story-step">03</span>
+                        <div class="story-content">
+                            <h3>The Forever Promise</h3>
+                            <p>
+                                With our families' blessings and hearts full of gratitude, we take the sacred vows on 18 January 2027, embarking on our lifelong adventure together.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 CELEBRATIONS & EVENTS
+            ========================== -->
+            <section class="events section" id="eventsSection">
+
+                <div class="events-header">
+                    <p class="eyebrow">THE CELEBRATIONS</p>
+
+                    <h2>Wedding<br>festivities.</h2>
+
+                    <div class="small-divider">
+                        <span></span>
+                        <i>✦</i>
+                        <span></span>
+                    </div>
+
+                    <p class="section-subtext">Join us across two days of music, vibrant traditions, and joyful memories.</p>
+                </div>
+
+
+                <!-- =========================
+                     17 JANUARY
+                ========================== -->
+                <div class="event-date">
+                    <div class="date-number">17</div>
+                    <div class="date-details">
+                        <strong>JANUARY</strong>
+                        <span>SUNDAY · 2027</span>
+                    </div>
+                </div>
+
+                <div class="event-list">
+
+                    <!-- Haldi -->
+                    <article class="event-card">
+                        <div class="event-index">01</div>
+                        <div class="event-info">
+                            <p class="event-type">TRADITION</p>
+                            <h3>Haldi</h3>
+                            <p class="event-description">
+                                A morning dipped in sunshine, fragrant turmeric & blessings.
+                            </p>
+
+                            <div class="event-meta">
+                                <span>MORNING · 10:00 AM</span>
+                                <span>KAKA PLACE</span>
+                            </div>
+
+                            <div class="attire-hint">
+                                <span class="attire-label">ATTIRE THEME:</span>
+                                <span class="attire-dots">
+                                    <i class="color-dot" style="background:#f4c430;" title="Sunshine Yellow"></i>
+                                    <i class="color-dot" style="background:#e09f3e;" title="Mustard Gold"></i>
+                                    <i class="color-dot" style="background:#fff3b0;" title="Pastel Yellow"></i>
+                                </span>
+                                <span class="attire-text">Vibrant Yellows & Mustard</span>
+                            </div>
+                        </div>
+                        <div class="event-symbol">✦</div>
+                    </article>
+
+                    <!-- Mandha -->
+                    <article class="event-card">
+                        <div class="event-index">02</div>
+                        <div class="event-info">
+                            <p class="event-type">AUSPICIOUS</p>
+                            <h3>Mandha</h3>
+                            <p class="event-description">
+                                Sacred prayer rituals and family blessings begin.
+                            </p>
+
+                            <div class="event-meta">
+                                <span>AFTERNOON · 02:00 PM</span>
+                                <span>KAKA PLACE</span>
+                            </div>
+
+                            <div class="attire-hint">
+                                <span class="attire-label">ATTIRE THEME:</span>
+                                <span class="attire-dots">
+                                    <i class="color-dot" style="background:#e8c5b8;" title="Blush Rose"></i>
+                                    <i class="color-dot" style="background:#d4af37;" title="Warm Gold"></i>
+                                    <i class="color-dot" style="background:#f5f0e7;" title="Ivory"></i>
+                                </span>
+                                <span class="attire-text">Traditional Pastels & Heritage Wear</span>
+                            </div>
+                        </div>
+                        <div class="event-symbol">✦</div>
+                    </article>
+
+                    <!-- Mehndi -->
+                    <article class="event-card">
+                        <div class="event-index">03</div>
+                        <div class="event-info">
+                            <p class="event-type">CELEBRATION</p>
+                            <h3>Mehndi</h3>
+                            <p class="event-description">
+                                Delicate henna strokes, folk rhythms & endless smiles.
+                            </p>
+
+                            <div class="event-meta">
+                                <span>EVENING · 05:00 PM</span>
+                                <span>KAKA PLACE</span>
+                            </div>
+
+                            <div class="attire-hint">
+                                <span class="attire-label">ATTIRE THEME:</span>
+                                <span class="attire-dots">
+                                    <i class="color-dot" style="background:#2d6a4f;" title="Henna Green"></i>
+                                    <i class="color-dot" style="background:#52b788;" title="Mint Green"></i>
+                                    <i class="color-dot" style="background:#b7e4c7;" title="Pistachio"></i>
+                                </span>
+                                <span class="attire-text">Henna Greens, Florals & Mirrors</span>
+                            </div>
+                        </div>
+                        <div class="event-symbol">✦</div>
+                    </article>
+
+                    <!-- DJ Night -->
+                    <article class="event-card">
+                        <div class="event-index">04</div>
+                        <div class="event-info">
+                            <p class="event-type">PARTY & DANCE</p>
+                            <h3>DJ Night</h3>
+                            <p class="event-description">
+                                High beats, dancing, and memories under the stars.
+                            </p>
+
+                            <div class="event-meta">
+                                <span>NIGHT · 08:00 PM ONWARDS</span>
+                                <span>KAKA PLACE</span>
+                            </div>
+
+                            <div class="attire-hint">
+                                <span class="attire-label">ATTIRE THEME:</span>
+                                <span class="attire-dots">
+                                    <i class="color-dot" style="background:#1d2d44;" title="Midnight Blue"></i>
+                                    <i class="color-dot" style="background:#c5ad7d;" title="Champagne Gold"></i>
+                                    <i class="color-dot" style="background:#7209b7;" title="Velvet Violet"></i>
+                                </span>
+                                <span class="attire-text">Glamour, Indo-Western & Sparkle</span>
+                            </div>
+                        </div>
+                        <div class="event-symbol">✦</div>
+                    </article>
+
+                </div>
+
+
+                <!-- =========================
+                     18 JANUARY
+                ========================== -->
+                <div class="event-date wedding-date">
+                    <div class="date-number">18</div>
+                    <div class="date-details">
+                        <strong>JANUARY</strong>
+                        <span>MONDAY · 2027</span>
+                    </div>
+                </div>
+
+                <article class="event-card wedding-event">
+                    <div class="event-index">05</div>
+                    <div class="event-info">
+                        <p class="event-type">THE MAIN AUSPICIOUS UNION</p>
+                        <h3>The Wedding</h3>
+                        <p class="event-description">
+                            The sacred pheras around the agni, unifying two families forever.
+                        </p>
+
+                        <div class="event-meta">
+                            <span>EVENING · 07:00 PM ONWARDS</span>
+                            <span>KAKA PLACE</span>
+                        </div>
+
+                        <div class="attire-hint">
+                            <span class="attire-label">ATTIRE THEME:</span>
+                            <span class="attire-dots">
+                                <i class="color-dot" style="background:#57282f;" title="Royal Maroon"></i>
+                                <i class="color-dot" style="background:#a48650;" title="Imperial Gold"></i>
+                                <i class="color-dot" style="background:#ecd6c0;" title="Silk Ivory"></i>
+                            </span>
+                            <span class="attire-text">Royal Maroon, Regal Pastels & Gold</span>
+                        </div>
+                    </div>
+                    <div class="wedding-symbol">
+                        ♡
+                    </div>
+                </article>
+
+            </section>
+
+
+            <!-- =========================
+                 VENUE & LOCATION
+            ========================== -->
+            <section class="venue-section section" id="venueSection">
+
+                <p class="eyebrow">LOCATION & DIRECTIONS</p>
+
+                <h2>Join us at<br>Kaka Place.</h2>
+
+                <div class="small-divider">
+                    <span></span>
+                    <i>✦</i>
+                    <span></span>
+                </div>
+
+                <div class="venue-card">
+                    <div class="venue-badge">✦ CEREMONY VENUE ✦</div>
+                    <h3>Kaka Place</h3>
+                    <p class="venue-desc">
+                        All wedding festivities and dinner will be hosted with warm hospitality at Kaka Place.
+                    </p>
+
+                    <div class="venue-perks">
+                        <div class="perk">
+                            <i>📍</i>
+                            <span>Convenient Navigation</span>
+                        </div>
+                        <div class="perk">
+                            <i>🚗</i>
+                            <span>Valet Parking Available</span>
+                        </div>
+                        <div class="perk">
+                            <i>🌸</i>
+                            <span>Hospitality Desks</span>
+                        </div>
+                    </div>
+
+                    <div class="venue-actions">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Kaka+Place" target="_blank" rel="noopener noreferrer" class="venue-btn">
+                            <span>Open in Google Maps ➔</span>
+                        </a>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 BLESSINGS & RSVP
+            ========================== -->
+            <section class="rsvp-section section" id="rsvpSection">
+
+                <p class="eyebrow">BLESSINGS & WISHES</p>
+
+                <h2>Leave your blessings<br>& RSVP.</h2>
+
+                <div class="small-divider">
+                    <span></span>
+                    <i>✦</i>
+                    <span></span>
+                </div>
+
+                <p class="intro-text">
+                    Your presence and blessings mean the world to us. Let us know you're joining or leave a sweet note!
+                </p>
+
+                <!-- Interactive Form -->
+                <div class="rsvp-container">
+
+                    <form id="rsvpForm" class="rsvp-form" onsubmit="return false;">
+                        <div class="form-group">
+                            <label for="guestName">Your Full Name / Family Name</label>
+                            <input type="text" id="guestName" placeholder="e.g. Rahul & Family" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="attendanceStatus">Will You Attend?</label>
+                                <select id="attendanceStatus">
+                                    <option value="Joyfully Attending">Joyfully Attending 🎉</option>
+                                    <option value="Attending with Family">Attending with Family 👨‍👩‍👧‍👦</option>
+                                    <option value="Celebrating from afar">Celebrating from afar (Regretfully Decline) 💌</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="guestCount">Number of Guests</label>
+                                <input type="number" id="guestCount" min="1" max="10" value="2">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="guestMessage">Warm Wishes & Blessings</label>
+                            <textarea id="guestMessage" rows="3" placeholder="Wishing you both a lifetime of love and joy..."></textarea>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="button" id="saveWishBtn" class="form-btn primary">
+                                <span>Sign Blessings Wall ✨</span>
+                            </button>
+                            <button type="button" id="whatsappRsvpBtn" class="form-btn whatsapp-btn">
+                                <span>Confirm via WhatsApp 💬</span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Blessings Wall Cards -->
+                    <div class="wishes-wall">
+                        <div class="wall-header">
+                            <h4>BLESSINGS WALL</h4>
+                            <span class="wall-badge" id="wishesCount">3 Wishes</span>
+                        </div>
+                        <div class="wishes-stream" id="wishesStream">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 SHARE & HASHTAGS
+            ========================== -->
+            <section class="share-section section">
+
+                <div class="section-decoration">✦</div>
+
+                <p class="eyebrow">CELEBRATE TOGETHER</p>
+
+                <h2>#MohitWedsMansi</h2>
+
+                <p class="share-desc">
+                    Tag your photos & memories with our wedding hashtag!
+                </p>
+
+                <div class="share-buttons-wrap">
+                    <button id="copyLinkBtn" class="share-pill-btn">
+                        <span>📋 Copy Invitation Link</span>
+                    </button>
+                    <button id="whatsappShareBtn" class="share-pill-btn accent">
+                        <span>💬 Share on WhatsApp</span>
+                    </button>
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 FOOTER
+            ========================== -->
             <footer>
 
                 <div class="footer-symbol">✦</div>
 
                 <h2>Mohit & Mansi</h2>
 
-                <p>18 · 01 · 2027</p>
+                <p class="footer-date">18 · 01 · 2027</p>
+
+                <p class="footer-note">
+                    With boundless love, joy & gratitude from the Deshwal & family.
+                </p>
+
+                <a href="#hero" class="back-to-top" aria-label="Back to top">
+                    <span>↑ TOP</span>
+                </a>
 
             </footer>
 
         </section>
 
     </main>
+
+    <!-- Toast Notification Container -->
+    <div id="toastNotification" class="toast" role="status" aria-live="polite"></div>
 
     <script src="js/script.js"></script>
 
