@@ -323,34 +323,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ========================================================
        6. BLESSINGS WALL & RSVP GUESTBOOK
-       Connected to Google Sheets Web App + LocalStorage Cache
+       Connected to Google Sheets Web App
     ======================================================== */
-    const defaultWishes = [
-        {
-            name: "Rohit & Priya Deshwal",
-            status: "Joyfully Attending",
-            msg: "Wishing Mohit & Mansi a lifetime of endless joy, laughter, and togetherness! Looking forward to dancing our hearts out at the DJ Night! 💛"
-        },
-        {
-            name: "Sharma Family",
-            status: "Attending with Family",
-            msg: "Heartiest congratulations to both families. May God shower His choicest blessings upon this royal union with harmony and peace."
-        },
-        {
-            name: "Ankit & Neha",
-            status: "Joyfully Attending",
-            msg: "Can't wait to celebrate the big day at Kaka Place! You two are truly made for each other. Lots of love and hugs! ✨"
-        }
-    ];
-
     const STORAGE_KEY = "mohit_mansi_wedding_wishes";
+
+    // Clean up any previously stored static dummy wishes
+    try {
+        const cached = localStorage.getItem(STORAGE_KEY);
+        if (cached) {
+            const parsed = JSON.parse(cached);
+            const filtered = parsed.filter(w => 
+                w.name !== "Rohit & Priya Deshwal" && 
+                w.name !== "Sharma Family" && 
+                w.name !== "Ankit & Neha"
+            );
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(filtered));
+        }
+    } catch (e) {}
 
     function loadLocalWishes() {
         try {
             const saved = localStorage.getItem(STORAGE_KEY);
-            return saved ? JSON.parse(saved) : defaultWishes;
+            return saved ? JSON.parse(saved) : [];
         } catch (e) {
-            return defaultWishes;
+            return [];
         }
     }
 
@@ -367,9 +363,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const countBadge = document.getElementById("wishesCount");
         if (!stream) return;
 
-        const currentWishes = wishesToDisplay || loadLocalWishes();
+        const currentWishes = wishesToDisplay !== undefined ? wishesToDisplay : loadLocalWishes();
+        
         if (countBadge) {
             countBadge.textContent = `${currentWishes.length} ${currentWishes.length === 1 ? 'Wish' : 'Wishes'}`;
+        }
+
+        if (!currentWishes || currentWishes.length === 0) {
+            stream.innerHTML = `
+                <div class="empty-wishes-placeholder" style="text-align:center; padding:35px 15px;">
+                    <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; color:var(--muted); line-height:1.6;">
+                        Be the first to leave a warm blessing for Mohit & Mansi! ✨
+                    </p>
+                </div>
+            `;
+            return;
         }
 
         stream.innerHTML = currentWishes.map(item => `
@@ -396,21 +404,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initial render from local cache
     renderWishes();
 
-    // Fetch live wishes from Google Sheet on page load
+    // Fetch live wishes directly from Google Sheet on page load
     if (GOOGLE_SHEET_ENDPOINT) {
         fetch(GOOGLE_SHEET_ENDPOINT)
             .then(res => res.json())
             .then(data => {
                 if (Array.isArray(data)) {
-                    // Combine Google Sheet rows with default pre-seeded wishes if fewer than 3
-                    const combined = [...data];
-                    defaultWishes.forEach(dw => {
-                        if (!combined.some(c => c.name === dw.name && c.msg === dw.msg)) {
-                            combined.push(dw);
-                        }
-                    });
-                    renderWishes(combined);
-                    saveWishesToStorage(combined);
+                    renderWishes(data);
+                    saveWishesToStorage(data);
                 }
             })
             .catch(err => console.log("Google Sheets sync offline, using local data", err));
