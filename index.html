@@ -4,53 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color" content="#f5f0e7">
-    <meta name="description" content="Mohit & Mansi Wedding Invitation · 18 January 2027 · Kaka Place">
+    <meta name="theme-color" content="#7c1424">
+    <meta name="description" content="Mohit & Mansi Wedding Invitation · Shubh Vivah · 18 January 2027 · Kaka Place">
 
     <!-- Open Graph for WhatsApp, Instagram, Facebook sharing -->
-    <meta property="og:title" content="Mohit & Mansi | Wedding Invitation">
-    <meta property="og:description" content="Together with their families, Mohit & Mansi invite you to celebrate the beginning of their forever on 18 January 2027.">
+    <meta property="og:title" content="॥ शुभ विवाह ॥ Mohit & Mansi Wedding Invitation">
+    <meta property="og:description" content="Together with their families, Mohit & Mansi invite you to celebrate their auspicious wedding festivities on 17 & 18 January 2027 at Kaka Place.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mohit01-beep.github.io/mohit-mansi-wedding/">
 
-    <title>Mohit & Mansi | 18 January 2027</title>
+    <title>॥ शुभ विवाह ॥ Mohit & Mansi | 18 January 2027</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Royal Indian & Devanagari Compatible Typography: Rozha One, Cinzel Decorative, Cormorant Garamond, DM Sans, Great Vibes -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;700&family=Great+Vibes&family=Rozha+One&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- Canvas for Floating Petals -->
+    <!-- Festive Traditional Marigold (Genda Phool) & Mango Leaf Toran Garland -->
+    <div class="marigold-toran" aria-hidden="true"></div>
+    <div class="side-garland left" aria-hidden="true"></div>
+    <div class="side-garland right" aria-hidden="true"></div>
+
+    <!-- Canvas for Floating Marigold & Rose Petals -->
     <canvas id="petalCanvas"></canvas>
 
-    <!-- Page Loader -->
+    <!-- Page Loader with Auspicious Golden Ganesha -->
     <div class="page-loader" id="pageLoader">
+        <svg class="loader-ganesha" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+            <path d="M50 12 C44 12 40 16 40 22 C40 24 41 26 42 28 C35 30 30 37 30 45 C30 52 34 58 40 62 C40 68 44 76 50 82 C56 76 60 68 60 62 C66 58 70 52 70 45 C70 37 65 30 58 28 C59 26 60 24 60 22 C60 16 56 12 50 12 Z M47 25 C47 23 48 21 50 21 C52 21 53 23 53 25 C53 27 52 29 50 29 C48 29 47 27 47 25 Z M50 36 C55 36 62 40 62 46 C62 52 56 56 50 56 C44 56 38 52 38 46 C38 40 45 36 50 36 Z M50 62 C53 66 55 70 50 75 C45 70 47 66 50 62 Z"/>
+        </svg>
         <span></span>
     </div>
 
     <!-- Floating Quick Actions -->
     <aside class="floating-controls" aria-label="Celebration Controls">
-        <button id="musicToggle" class="floating-btn" title="Toggle Ambient Music" aria-label="Toggle music">
+        <button id="musicToggle" class="floating-btn" title="Toggle Shehnai Wedding Music" aria-label="Toggle music">
             <span class="music-icon">
                 <i class="bar"></i>
                 <i class="bar"></i>
                 <i class="bar"></i>
             </span>
-            <span class="btn-tooltip">Music</span>
+            <span class="btn-tooltip">Shehnai</span>
         </button>
 
-        <button id="petalBtn" class="floating-btn" title="Shower Petals" aria-label="Shower petals">
-            <span class="petal-icon">🌸</span>
+        <button id="petalBtn" class="floating-btn" title="Shower Rose & Genda Petals" aria-label="Shower petals">
+            <span class="petal-icon">🌺</span>
             <span class="btn-tooltip">Blessings</span>
         </button>
 
-        <button id="shareTopBtn" class="floating-btn" title="Share Invitation" aria-label="Share invitation">
-            <span class="share-icon">✦</span>
+        <button id="shareTopBtn" class="floating-btn" title="Share Shubh Nimantran" aria-label="Share invitation">
+            <span class="share-icon">🪔</span>
             <span class="btn-tooltip">Share</span>
         </button>
     </aside>
@@ -58,7 +67,7 @@
     <main class="invitation">
 
         <!-- =========================
-             COVER / HERO
+             COVER / HERO SECTION
         ========================== -->
         <section class="hero" id="hero">
 
@@ -67,20 +76,20 @@
             <div class="corner corner-bottom-left"></div>
             <div class="corner corner-bottom-right"></div>
 
-            <!-- Subtle Decorative Inner Frame -->
+            <!-- Royal Palace Jharokha Arch Framing -->
             <div class="hero-frame" aria-hidden="true"></div>
 
-            <!-- Royal Spinning Background Mandala -->
+            <!-- Royal Spinning Golden Mandala Sunburst -->
             <div class="hero-mandala" aria-hidden="true">
                 <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="250" cy="250" r="238" stroke="currentColor" stroke-width="1.8" stroke-dasharray="4 8"/>
-                    <circle cx="250" cy="250" r="218" stroke="currentColor" stroke-width="1.4"/>
-                    <circle cx="250" cy="250" r="188" stroke="currentColor" stroke-width="1.6"/>
-                    <circle cx="250" cy="250" r="158" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 10"/>
-                    <circle cx="250" cy="250" r="128" stroke="currentColor" stroke-width="1.6"/>
-                    <circle cx="250" cy="250" r="98" stroke="currentColor" stroke-width="1.4"/>
-                    <circle cx="250" cy="250" r="68" stroke="currentColor" stroke-width="1.6"/>
-                    <g stroke="currentColor" stroke-width="1.5">
+                    <circle cx="250" cy="250" r="238" stroke="currentColor" stroke-width="2.5" stroke-dasharray="5 9"/>
+                    <circle cx="250" cy="250" r="218" stroke="currentColor" stroke-width="1.8"/>
+                    <circle cx="250" cy="250" r="188" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="250" cy="250" r="158" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 12"/>
+                    <circle cx="250" cy="250" r="128" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="250" cy="250" r="98" stroke="currentColor" stroke-width="1.8"/>
+                    <circle cx="250" cy="250" r="68" stroke="currentColor" stroke-width="2"/>
+                    <g stroke="currentColor" stroke-width="2">
                         <path d="M250 15 C230 90 230 160 250 250 C270 160 270 90 250 15 Z"/>
                         <path d="M250 485 C230 410 230 340 250 250 C270 340 270 410 250 485 Z"/>
                         <path d="M15 250 C90 230 160 230 250 250 C160 270 90 270 15 250 Z"/>
@@ -92,16 +101,16 @@
                             <path d="M485 250 C410 230 340 230 250 250 C340 270 410 270 485 250 Z"/>
                         </g>
                         <g transform="rotate(22.5 250 250)">
-                            <path d="M250 45 C235 110 235 170 250 250 C265 170 265 110 250 45 Z" stroke-opacity="0.85"/>
-                            <path d="M250 455 C235 390 235 330 250 250 C265 330 265 390 250 455 Z" stroke-opacity="0.85"/>
-                            <path d="M45 250 C110 235 170 235 250 250 C170 265 110 265 45 250 Z" stroke-opacity="0.85"/>
-                            <path d="M455 250 C390 235 330 235 250 250 C330 265 390 265 455 250 Z" stroke-opacity="0.85"/>
+                            <path d="M250 45 C235 110 235 170 250 250 C265 170 265 110 250 45 Z" stroke-opacity="0.9"/>
+                            <path d="M250 455 C235 390 235 330 250 250 C265 330 265 390 250 455 Z" stroke-opacity="0.9"/>
+                            <path d="M45 250 C110 235 170 235 250 250 C170 265 110 265 45 250 Z" stroke-opacity="0.9"/>
+                            <path d="M455 250 C390 235 330 235 250 250 C330 265 390 265 455 250 Z" stroke-opacity="0.9"/>
                         </g>
                         <g transform="rotate(67.5 250 250)">
-                            <path d="M250 45 C235 110 235 170 250 250 C265 170 265 110 250 45 Z" stroke-opacity="0.85"/>
-                            <path d="M250 455 C235 390 235 330 250 250 C265 330 265 390 250 455 Z" stroke-opacity="0.85"/>
-                            <path d="M45 250 C110 235 170 235 250 250 C170 265 110 265 45 250 Z" stroke-opacity="0.85"/>
-                            <path d="M455 250 C390 235 330 235 250 250 C330 265 390 265 455 250 Z" stroke-opacity="0.85"/>
+                            <path d="M250 45 C235 110 235 170 250 250 C265 170 265 110 250 45 Z" stroke-opacity="0.9"/>
+                            <path d="M250 455 C235 390 235 330 250 250 C265 330 265 390 250 455 Z" stroke-opacity="0.9"/>
+                            <path d="M45 250 C110 235 170 235 250 250 C170 265 110 265 45 250 Z" stroke-opacity="0.9"/>
+                            <path d="M455 250 C390 235 330 235 250 250 C330 265 390 265 455 250 Z" stroke-opacity="0.9"/>
                         </g>
                     </g>
                 </svg>
@@ -109,16 +118,23 @@
 
             <div class="hero-content">
 
-                <div class="top-symbol">
+                <!-- Auspicious Ganesha Emblem -->
+                <div class="ganesha-emblem reveal reveal-1">
+                    <svg class="ganesha-icon" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+                        <path d="M50 10 C42 10 38 15 38 22 C38 24 39 26 40 28 C32 30 26 38 26 47 C26 55 31 62 38 66 C38 72 43 82 50 88 C57 82 62 72 62 66 C69 62 74 55 74 47 C74 38 68 30 60 28 C61 26 62 24 62 22 C62 15 58 10 50 10 Z M46 25 C46 22.8 47.8 21 50 21 C52.2 21 54 22.8 54 25 C54 27.2 52.2 29 50 29 C47.8 29 46 27.2 46 25 Z M50 36 C56 36 64 41 64 48 C64 55 57 60 50 60 C43 60 36 55 36 48 C36 41 44 36 50 36 Z M50 66 C53.5 70 56 75 50 80 C44 75 46.5 70 50 66 Z"/>
+                    </svg>
+                    <p class="shloka-mini">॥ श्री गणेशाय नमः ॥</p>
+                    <p class="shloka-sub">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ। निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥</p>
+                </div>
+
+                <div class="top-symbol reveal reveal-1">
                     <span></span>
-                    <i>✦</i>
+                    <i>🪔</i>
                     <span></span>
                 </div>
 
-                <p class="shloka-mini reveal reveal-1">॥ श्री गणेशाय नमः ॥</p>
-
                 <p class="eyebrow reveal reveal-1">
-                    A NEW CHAPTER BEGINS
+                    ॥ शुभ विवाह निमंत्रण ॥
                 </p>
 
                 <div class="names reveal reveal-2">
@@ -143,12 +159,12 @@
                     <span>18</span>
                     <div>
                         <small>JANUARY</small>
-                        <small>2027</small>
+                        <small>2027 · SHUBH MUHURAT</small>
                     </div>
                 </div>
 
                 <button id="openInvitation" class="open-button reveal reveal-5" aria-label="Open Invitation">
-                    <span>OPEN INVITATION</span>
+                    <span>खोलिए निमंत्रण पत्र (OPEN)</span>
                     <b>↓</b>
                 </button>
 
@@ -170,13 +186,13 @@
             <!-- WELCOME / BLESSING SECTION -->
             <section class="welcome section">
 
-                <div class="section-decoration">✦</div>
+                <div class="section-decoration">🪔</div>
 
-                <p class="eyebrow">WITH LOVE</p>
+                <p class="eyebrow">॥ स्नेह निमंत्रण ॥</p>
 
                 <h2>
-                    Two hearts,<br>
-                    one beginning.
+                    दो दिलों का संगम,<br>
+                    एक नए जीवन की शुरुआत।
                 </h2>
 
                 <div class="small-divider">
@@ -186,19 +202,19 @@
                 </div>
 
                 <p class="intro-text">
-                    Together with their families,
-                    <strong>Mohit & Mansi</strong> invite you to celebrate
-                    the auspicious beginning of their forever.
+                    परमपिता परमात्मा की असीम अनुकम्पा से,
+                    <strong>मोहित एवं मानसी (Mohit & Mansi)</strong>
+                    के पावन वैवाहिक बंधन के शुभ अवसर पर हम आपको सपरिवार सादर आमंत्रित करते हैं।
                 </p>
 
-                <!-- Sacred Blessing Card -->
+                <!-- Sacred Blessing Card with Vedic Shloka -->
                 <div class="sacred-card">
                     <p class="sanskrit-text">
                         मंगलम् भगवान विष्णुः, मंगलम् गरुडध्वजः।<br>
                         मंगलम् पुण्डरीकाक्षः, मंगलाय तनो हरिः॥
                     </p>
                     <p class="translation-text">
-                        "May the divine bless this sacred bond with eternal joy, peace & harmony."
+                        "May the Supreme Divine shower eternal bliss, prosperity, peace and harmony upon this sacred union."
                     </p>
                 </div>
 
@@ -210,35 +226,35 @@
             ========================== -->
             <section class="countdown-section section">
 
-                <p class="eyebrow">THE COUNTDOWN</p>
+                <p class="eyebrow">॥ शुभ वेला की प्रतीक्षा ॥</p>
 
-                <h2>Counting down<br>to forever.</h2>
+                <h2>Counting down<br>to the Big Day.</h2>
 
                 <div class="small-divider">
                     <span></span>
-                    <i>✦</i>
+                    <i>🪔</i>
                     <span></span>
                 </div>
 
                 <div class="countdown-grid" id="countdownGrid" aria-live="polite">
                     <div class="countdown-card">
                         <span class="countdown-number" id="countDays">--</span>
-                        <span class="countdown-label">DAYS</span>
+                        <span class="countdown-label">DAYS (दिन)</span>
                     </div>
                     <div class="countdown-separator">:</div>
                     <div class="countdown-card">
                         <span class="countdown-number" id="countHours">--</span>
-                        <span class="countdown-label">HOURS</span>
+                        <span class="countdown-label">HOURS (घंटे)</span>
                     </div>
                     <div class="countdown-separator">:</div>
                     <div class="countdown-card">
                         <span class="countdown-number" id="countMinutes">--</span>
-                        <span class="countdown-label">MINUTES</span>
+                        <span class="countdown-label">MINUTES (मिनट)</span>
                     </div>
                     <div class="countdown-separator">:</div>
                     <div class="countdown-card">
                         <span class="countdown-number" id="countSeconds">--</span>
-                        <span class="countdown-label">SECONDS</span>
+                        <span class="countdown-label">SECONDS (सेकंड)</span>
                     </div>
                 </div>
 
@@ -255,11 +271,11 @@
 
 
             <!-- =========================
-                 OUR STORY / MILESTONES
+                 OUR STORY / PREM KAHANI
             ========================== -->
             <section class="story-section section">
 
-                <p class="eyebrow">OUR JOURNEY</p>
+                <p class="eyebrow">॥ हमारी प्रेम कहानी ॥</p>
 
                 <h2>A love written<br>in the stars.</h2>
 
@@ -294,9 +310,9 @@
                     <article class="story-card">
                         <span class="story-step">03</span>
                         <div class="story-content">
-                            <h3>The Forever Promise</h3>
+                            <h3>The Sacred Vows</h3>
                             <p>
-                                With our families' blessings and hearts full of gratitude, we take the sacred vows on 18 January 2027, embarking on our lifelong adventure together.
+                                With our families' blessings and hearts full of gratitude, we take the sacred 7 pheras around the holy fire on 18 January 2027 at Kaka Place.
                             </p>
                         </div>
                     </article>
@@ -307,22 +323,22 @@
 
 
             <!-- =========================
-                 CELEBRATIONS & EVENTS
+                 CELEBRATIONS & EVENTS (विवाह उत्सव)
             ========================== -->
             <section class="events section" id="eventsSection">
 
                 <div class="events-header">
-                    <p class="eyebrow">THE CELEBRATIONS</p>
+                    <p class="eyebrow">॥ वैवाहिक कार्यक्रम ॥</p>
 
                     <h2>Wedding<br>festivities.</h2>
 
                     <div class="small-divider">
                         <span></span>
-                        <i>✦</i>
+                        <i>🪔</i>
                         <span></span>
                     </div>
 
-                    <p class="section-subtext">Join us across two days of music, vibrant traditions, and joyful memories.</p>
+                    <p class="section-subtext">दो दिनों का रंगारंग उत्सव, संगीत, पारंपरिक रस्में और ढेर सारा प्यार।</p>
                 </div>
 
 
@@ -332,7 +348,7 @@
                 <div class="event-date">
                     <div class="date-number">17</div>
                     <div class="date-details">
-                        <strong>JANUARY</strong>
+                        <strong>JANUARY (रविवार)</strong>
                         <span>SUNDAY · 2027</span>
                     </div>
                 </div>
@@ -343,10 +359,10 @@
                     <article class="event-card">
                         <div class="event-index">01</div>
                         <div class="event-info">
-                            <p class="event-type">TRADITION</p>
-                            <h3>Haldi</h3>
+                            <p class="event-type">शुभ रस्म · HALDI CEREMONY</p>
+                            <h3>Haldi (हल्दी)</h3>
                             <p class="event-description">
-                                A morning dipped in sunshine, fragrant turmeric & blessings.
+                                A morning dipped in fragrant turmeric, marigold petals & sunny smiles.
                             </p>
 
                             <div class="event-meta">
@@ -355,13 +371,13 @@
                             </div>
 
                             <div class="attire-hint">
-                                <span class="attire-label">ATTIRE THEME:</span>
+                                <span class="attire-label">DRESS CODE:</span>
                                 <span class="attire-dots">
-                                    <i class="color-dot" style="background:#f4c430;" title="Sunshine Yellow"></i>
-                                    <i class="color-dot" style="background:#e09f3e;" title="Mustard Gold"></i>
-                                    <i class="color-dot" style="background:#fff3b0;" title="Pastel Yellow"></i>
+                                    <i class="color-dot" style="background:#f4a261;" title="Haldi Yellow"></i>
+                                    <i class="color-dot" style="background:#e85d04;" title="Marigold Orange"></i>
+                                    <i class="color-dot" style="background:#fff3b0;" title="Sunshine Gold"></i>
                                 </span>
-                                <span class="attire-text">Vibrant Yellows & Mustard</span>
+                                <span class="attire-text">Vibrant Yellows, Ochre & Genda Phool</span>
                             </div>
                         </div>
                         <div class="event-symbol">✦</div>
@@ -371,10 +387,10 @@
                     <article class="event-card">
                         <div class="event-index">02</div>
                         <div class="event-info">
-                            <p class="event-type">AUSPICIOUS</p>
-                            <h3>Mandha</h3>
+                            <p class="event-type">पारंपरिक पूजन · MANDHA & CHAK PUJA</p>
+                            <h3>Mandha (मंढा पूजन)</h3>
                             <p class="event-description">
-                                Sacred prayer rituals and family blessings begin.
+                                Auspicious ancestral prayer rituals, kuldevi sthapana & family blessings.
                             </p>
 
                             <div class="event-meta">
@@ -383,13 +399,13 @@
                             </div>
 
                             <div class="attire-hint">
-                                <span class="attire-label">ATTIRE THEME:</span>
+                                <span class="attire-label">DRESS CODE:</span>
                                 <span class="attire-dots">
                                     <i class="color-dot" style="background:#e8c5b8;" title="Blush Rose"></i>
-                                    <i class="color-dot" style="background:#d4af37;" title="Warm Gold"></i>
-                                    <i class="color-dot" style="background:#f5f0e7;" title="Ivory"></i>
+                                    <i class="color-dot" style="background:#d4af37;" title="Zari Gold"></i>
+                                    <i class="color-dot" style="background:#f5f0e7;" title="Traditional Silk"></i>
                                 </span>
-                                <span class="attire-text">Traditional Pastels & Heritage Wear</span>
+                                <span class="attire-text">Traditional Ethnic, Sarees & Kurta Pajama</span>
                             </div>
                         </div>
                         <div class="event-symbol">✦</div>
@@ -399,10 +415,10 @@
                     <article class="event-card">
                         <div class="event-index">03</div>
                         <div class="event-info">
-                            <p class="event-type">CELEBRATION</p>
-                            <h3>Mehndi</h3>
+                            <p class="event-type">मेहंदी उत्सव · MEHNDI CEREMONY</p>
+                            <h3>Mehndi (मेहंदी)</h3>
                             <p class="event-description">
-                                Delicate henna strokes, folk rhythms & endless smiles.
+                                Intricate bridal henna patterns, rhythmic dholak beats & joy.
                             </p>
 
                             <div class="event-meta">
@@ -411,13 +427,13 @@
                             </div>
 
                             <div class="attire-hint">
-                                <span class="attire-label">ATTIRE THEME:</span>
+                                <span class="attire-label">DRESS CODE:</span>
                                 <span class="attire-dots">
                                     <i class="color-dot" style="background:#2d6a4f;" title="Henna Green"></i>
-                                    <i class="color-dot" style="background:#52b788;" title="Mint Green"></i>
+                                    <i class="color-dot" style="background:#52b788;" title="Mint"></i>
                                     <i class="color-dot" style="background:#b7e4c7;" title="Pistachio"></i>
                                 </span>
-                                <span class="attire-text">Henna Greens, Florals & Mirrors</span>
+                                <span class="attire-text">Henna Greens, Florals & Mirror Work</span>
                             </div>
                         </div>
                         <div class="event-symbol">✦</div>
@@ -427,10 +443,10 @@
                     <article class="event-card">
                         <div class="event-index">04</div>
                         <div class="event-info">
-                            <p class="event-type">PARTY & DANCE</p>
-                            <h3>DJ Night</h3>
+                            <p class="event-type">संगीत व नृत्य · SANGEET & DJ NIGHT</p>
+                            <h3>DJ Night (संगीत संध्या)</h3>
                             <p class="event-description">
-                                High beats, dancing, and memories under the stars.
+                                Energetic Punjabi dhol, Bollywood tunes, dance battles & midnight feast!
                             </p>
 
                             <div class="event-meta">
@@ -439,13 +455,13 @@
                             </div>
 
                             <div class="attire-hint">
-                                <span class="attire-label">ATTIRE THEME:</span>
+                                <span class="attire-label">DRESS CODE:</span>
                                 <span class="attire-dots">
                                     <i class="color-dot" style="background:#1d2d44;" title="Midnight Blue"></i>
-                                    <i class="color-dot" style="background:#c5ad7d;" title="Champagne Gold"></i>
-                                    <i class="color-dot" style="background:#7209b7;" title="Velvet Violet"></i>
+                                    <i class="color-dot" style="background:#c59b27;" title="Champagne Gold"></i>
+                                    <i class="color-dot" style="background:#7c1424;" title="Wine Crimson"></i>
                                 </span>
-                                <span class="attire-text">Glamour, Indo-Western & Sparkle</span>
+                                <span class="attire-text">Glamorous Indo-Western, Tuxedos & Sherwanis</span>
                             </div>
                         </div>
                         <div class="event-symbol">✦</div>
@@ -455,42 +471,43 @@
 
 
                 <!-- =========================
-                     18 JANUARY
+                     18 JANUARY — THE WEDDING
                 ========================== -->
                 <div class="event-date wedding-date">
                     <div class="date-number">18</div>
                     <div class="date-details">
-                        <strong>JANUARY</strong>
-                        <span>MONDAY · 2027</span>
+                        <strong>JANUARY (सोमवार)</strong>
+                        <span>MONDAY · 2027 · ॥ शुभ विवाह ॥</span>
                     </div>
                 </div>
 
                 <article class="event-card wedding-event">
                     <div class="event-index">05</div>
                     <div class="event-info">
-                        <p class="event-type">THE MAIN AUSPICIOUS UNION</p>
-                        <h3>The Wedding</h3>
+                        <p class="event-type">॥ मुख्य वैवाहिक संस्कार · SHUBH VIVAH ॥</p>
+                        <h3>The Wedding (शुभ विवाह)</h3>
                         <p class="event-description">
-                            The sacred pheras around the agni, unifying two families forever.
+                            बारात आगमन, वरमाला, और अग्नि के समक्ष सात पावन फेरे — दो परिवारों का अटूट मिलन।
                         </p>
 
                         <div class="event-meta">
-                            <span>EVENING · 07:00 PM ONWARDS</span>
+                            <span>BARAAT · 07:00 PM ONWARDS</span>
+                            <span>PHERAS · SHUBH MUHURAT</span>
                             <span>KAKA PLACE</span>
                         </div>
 
                         <div class="attire-hint">
-                            <span class="attire-label">ATTIRE THEME:</span>
+                            <span class="attire-label">DRESS CODE:</span>
                             <span class="attire-dots">
-                                <i class="color-dot" style="background:#57282f;" title="Royal Maroon"></i>
-                                <i class="color-dot" style="background:#a48650;" title="Imperial Gold"></i>
-                                <i class="color-dot" style="background:#ecd6c0;" title="Silk Ivory"></i>
+                                <i class="color-dot" style="background:#7c1424;" title="Royal Sindoor Crimson"></i>
+                                <i class="color-dot" style="background:#c59b27;" title="Imperial Gold"></i>
+                                <i class="color-dot" style="background:#f4a261;" title="Silk Brocade"></i>
                             </span>
-                            <span class="attire-text">Royal Maroon, Regal Pastels & Gold</span>
+                            <span class="attire-text">Royal Crimson, Regal Pastels, Sherwanis & Zari Lehengas</span>
                         </div>
                     </div>
                     <div class="wedding-symbol">
-                        ♡
+                        🪔
                     </div>
                 </article>
 
@@ -498,45 +515,45 @@
 
 
             <!-- =========================
-                 VENUE & LOCATION
+                 VENUE & LOCATION (स्थान)
             ========================== -->
             <section class="venue-section section" id="venueSection">
 
-                <p class="eyebrow">LOCATION & DIRECTIONS</p>
+                <p class="eyebrow">॥ विवाह स्थल एवं दिशा-निर्देश ॥</p>
 
                 <h2>Join us at<br>Kaka Place.</h2>
 
                 <div class="small-divider">
                     <span></span>
-                    <i>✦</i>
+                    <i>🪔</i>
                     <span></span>
                 </div>
 
                 <div class="venue-card">
-                    <div class="venue-badge">✦ CEREMONY VENUE ✦</div>
+                    <div class="venue-badge">✦ CEREMONY & BANQUET VENUE ✦</div>
                     <h3>Kaka Place</h3>
                     <p class="venue-desc">
-                        All wedding festivities and dinner will be hosted with warm hospitality at Kaka Place.
+                        आपकी उपस्थिति हमारे लिए अत्यंत सौभाग्य की बात है। समस्त वैवाहिक रस्में एवं प्रीतिभोज का आयोजन काका प्लेस में पूर्ण आतिथ्य सत्कार के साथ संपन्न होगा।
                     </p>
 
                     <div class="venue-perks">
                         <div class="perk">
                             <i>📍</i>
-                            <span>Convenient Navigation</span>
+                            <span>Easy Landmark Navigation</span>
                         </div>
                         <div class="perk">
                             <i>🚗</i>
-                            <span>Valet Parking Available</span>
+                            <span>Valet Parking for Guests</span>
                         </div>
                         <div class="perk">
-                            <i>🌸</i>
-                            <span>Hospitality Desks</span>
+                            <i>🌺</i>
+                            <span>Royal Swagat & Hospitality Desks</span>
                         </div>
                     </div>
 
                     <div class="venue-actions">
                         <a href="https://www.google.com/maps/search/?api=1&query=Kaka+Place" target="_blank" rel="noopener noreferrer" class="venue-btn">
-                            <span>Open in Google Maps ➔</span>
+                            <span>Open in Google Maps (स्थान देखें) ➔</span>
                         </a>
                     </div>
                 </div>
@@ -545,11 +562,11 @@
 
 
             <!-- =========================
-                 BLESSINGS & RSVP
+                 BLESSINGS & RSVP (आशीर्वाद पत्रिका)
             ========================== -->
             <section class="rsvp-section section" id="rsvpSection">
 
-                <p class="eyebrow">BLESSINGS & WISHES</p>
+                <p class="eyebrow">॥ आशीर्वाद संदेश एवं उपस्थिति सूचना ॥</p>
 
                 <h2>Leave your blessings<br>& RSVP.</h2>
 
@@ -560,7 +577,7 @@
                 </div>
 
                 <p class="intro-text">
-                    Your presence and blessings mean the world to us. Let us know you're joining or leave a sweet note!
+                    नव-दंपति को अपना स्नेह व आशीर्वाद प्रदान करें। अपनी उपस्थिति की सूचना दें ताकि हम आपके स्वागत की समुचित व्यवस्था कर सकें।
                 </p>
 
                 <!-- Interactive Form -->
@@ -568,37 +585,37 @@
 
                     <form id="rsvpForm" class="rsvp-form" onsubmit="return false;">
                         <div class="form-group">
-                            <label for="guestName">Your Full Name / Family Name</label>
-                            <input type="text" id="guestName" placeholder="e.g. Rahul & Family" required>
+                            <label for="guestName">आपका शुभ नाम / परिवार (Your Name)</label>
+                            <input type="text" id="guestName" placeholder="e.g. राहुल शर्मा व परिवार" required>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="attendanceStatus">Will You Attend?</label>
+                                <label for="attendanceStatus">उपस्थिति (Attendance)</label>
                                 <select id="attendanceStatus">
-                                    <option value="Joyfully Attending">Joyfully Attending 🎉</option>
+                                    <option value="Joyfully Attending">Joyfully Attending (सपरिवार पधारेंगे) 🎉</option>
                                     <option value="Attending with Family">Attending with Family 👨‍👩‍👧‍👦</option>
-                                    <option value="Celebrating from afar">Celebrating from afar (Regretfully Decline) 💌</option>
+                                    <option value="Celebrating from afar">Celebrating from afar (दूर से शुभकामनाएं) 💌</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="guestCount">Number of Guests</label>
-                                <input type="number" id="guestCount" min="1" max="10" value="2">
+                                <label for="guestCount">अतिथियों की संख्या (Guests)</label>
+                                <input type="number" id="guestCount" min="1" max="15" value="2">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="guestMessage">Warm Wishes & Blessings</label>
-                            <textarea id="guestMessage" rows="3" placeholder="Wishing you both a lifetime of love and joy..."></textarea>
+                            <label for="guestMessage">आशीर्वाद संदेश (Warm Blessings & Wishes)</label>
+                            <textarea id="guestMessage" rows="3" placeholder="वर-वधू को सुखी वैवाहिक जीवन का आशीर्वाद एवं शुभकामनाएं..."></textarea>
                         </div>
 
                         <div class="form-buttons">
                             <button type="button" id="saveWishBtn" class="form-btn primary">
-                                <span>Sign Blessings Wall ✨</span>
+                                <span>आशीर्वाद दीवार पर दर्ज करें (Sign Wall ✨)</span>
                             </button>
                             <button type="button" id="whatsappRsvpBtn" class="form-btn whatsapp-btn">
-                                <span>Confirm via WhatsApp 💬</span>
+                                <span>WhatsApp पर पुष्टि करें (Confirm via WhatsApp 💬)</span>
                             </button>
                         </div>
                     </form>
@@ -606,11 +623,11 @@
                     <!-- Blessings Wall Cards -->
                     <div class="wishes-wall">
                         <div class="wall-header">
-                            <h4>BLESSINGS WALL</h4>
+                            <h4>॥ आशीर्वाद दीवार (BLESSINGS WALL) ॥</h4>
                             <span class="wall-badge" id="wishesCount">0 Wishes</span>
                         </div>
                         <div class="wishes-stream" id="wishesStream">
-                            <!-- Populated dynamically via JS -->
+                            <!-- Populated dynamically via JS from Google Sheet -->
                         </div>
                     </div>
 
@@ -624,14 +641,14 @@
             ========================== -->
             <section class="share-section section">
 
-                <div class="section-decoration">✦</div>
+                <div class="section-decoration">🪔</div>
 
-                <p class="eyebrow">CELEBRATE TOGETHER</p>
+                <p class="eyebrow">॥ उत्सव का हिस्सा बनें ॥</p>
 
                 <h2>#MohitWedsMansi</h2>
 
                 <p class="share-desc">
-                    Tag your photos & memories with our wedding hashtag!
+                    विवाह की सुंदर स्मृतियों व तस्वीरों को हमारे हैशटैग के साथ साझा करें!
                 </p>
 
                 <div class="share-buttons-wrap">
@@ -647,22 +664,23 @@
 
 
             <!-- =========================
-                 FOOTER
+                 FOOTER (शाही समापन)
             ========================== -->
             <footer>
 
-                <div class="footer-symbol">✦</div>
+                <div class="footer-symbol">🪔</div>
 
                 <h2>Mohit & Mansi</h2>
 
-                <p class="footer-date">18 · 01 · 2027</p>
+                <p class="footer-date">18 · 01 · 2027 · ॥ शुभ विवाह ॥</p>
 
                 <p class="footer-note">
-                    With boundless love, joy & gratitude from the Deshwal & family.
+                    दर्शनाभिलाषी: देशवाल परिवार एवं समस्त रिश्तेदार व मित्रगण।<br>
+                    With boundless love, joy & gratitude.
                 </p>
 
                 <a href="#hero" class="back-to-top" aria-label="Back to top">
-                    <span>↑ TOP</span>
+                    <span>↑ TOP (वापस ऊपर जाएं)</span>
                 </a>
 
             </footer>
