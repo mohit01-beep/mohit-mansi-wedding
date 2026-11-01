@@ -810,60 +810,107 @@ button {
 }
 
 /* ========================================================
-   OUR STORY / JOURNEY (Prem Kahani)
+   FAMILY BLESSINGS & HOSTS (दर्शनाभिलाषी व स्वागताकांक्षी)
 ======================================================== */
-.story-section {
+.hosts-section {
     padding-top: 85px;
     padding-bottom: 95px;
 }
 
-.story-timeline {
+.hosts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 26px;
     margin-top: 45px;
-    text-align: left;
+    text-align: center;
 }
 
-.story-card {
+.host-card {
     background: linear-gradient(135deg, #fffcf5 0%, #fbf3df 100%);
     border: 1.5px solid var(--royal-gold);
     border-top: 4px solid var(--royal-crimson);
-    padding: 32px 24px;
-    border-radius: 6px;
+    padding: 34px 24px;
+    border-radius: 8px;
     position: relative;
     box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     transition: all 0.35s ease;
 }
 
-.story-card:hover {
+.host-card:hover {
     border-color: var(--pure-gold);
-    border-top-color: var(--marigold-orange);
     transform: translateY(-5px);
     box-shadow: var(--shadow-royal);
 }
 
-.story-step {
-    display: inline-block;
-    font-family: "Rozha One", serif;
-    font-size: 26px;
-    color: var(--marigold-orange);
-    margin-bottom: 12px;
-    font-weight: 700;
+.host-card.primary-host {
+    border-top-color: var(--marigold-orange);
+    border-width: 2px;
+    box-shadow: var(--shadow-royal), 0 0 20px rgba(212, 175, 55, 0.2);
+    background: linear-gradient(135deg, #fffcf5 0%, #faecd0 100%);
 }
 
-.story-content h3 {
-    font-family: "Rozha One", "Cormorant Garamond", serif;
-    font-size: 24px;
-    color: var(--royal-crimson);
+.host-badge {
+    display: inline-block;
+    font-size: 8.5px;
+    letter-spacing: 2px;
+    color: var(--marigold-orange);
+    font-weight: 700;
+    text-transform: uppercase;
     margin-bottom: 12px;
+    background: rgba(244, 162, 97, 0.18);
+    padding: 4px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(197, 155, 39, 0.3);
+}
+
+.host-icon {
+    font-size: 30px;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3));
+}
+
+.host-card h3 {
+    font-family: "Rozha One", "Cormorant Garamond", serif;
+    font-size: 26px;
+    color: var(--royal-crimson);
+    margin-bottom: 6px;
     font-weight: 600;
 }
 
-.story-content p {
+.host-sub {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--marigold-orange);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.host-divider {
+    width: 40px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, var(--royal-gold), transparent);
+    margin: 0 auto 16px;
+}
+
+.host-desc {
     font-size: 13.5px;
     line-height: 1.8;
     color: var(--text-muted);
+    margin-bottom: 14px;
+}
+
+.host-quote {
+    margin-top: auto;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--royal-crimson);
+    font-weight: 600;
+    line-height: 1.6;
 }
 
 /* ========================================================
