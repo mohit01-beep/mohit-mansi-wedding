@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "DTSTART:20270117T043000Z",
                 "DTEND:20270118T183000Z",
                 "SUMMARY:॥ शुभ विवाह ॥ Mohit & Mansi Wedding Festivities",
-                "DESCRIPTION:Join us for the auspicious wedding celebrations of Mohit & Mansi! Festivities begin 17 January (Haldi, Mandha, Mehndi, DJ Night) and Shubh Vivah on 18 January 2027 at Kaka Place.",
+                "DESCRIPTION:Join us for the auspicious wedding celebrations of Mohit & Mansi! Festivities begin 17 January (Haldi, Mandha Pratibhoj, Mehndi) and Shubh Vivah on 18 January 2027 at Kaka Place.",
                 "LOCATION:Kaka Place",
                 "STATUS:CONFIRMED",
                 "END:VEVENT",
@@ -114,120 +114,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ========================================================
-       4. AMBIENT TRADITIONAL INDIAN WEDDING SHEHNAI & SITAR HARMONY
-       Synthesized Raag Bhairavi / Kalyani auspicious Indian notes
-       using Web Audio API (zero audio file dependencies, instant, works offline).
+       4. ROYAL INDIAN WEDDING MUSIC (TRADITIONAL SHEHNAI & SITAR)
+       Plays authentic royal Indian wedding invitation music with
+       smooth play/pause, volume leveling, and visibility change handling.
     ======================================================== */
+    const weddingAudio = document.getElementById("weddingAudio");
     const audioState = {
-        ctx: null,
         isPlaying: false,
-        timer: null,
-        droneTimer: null,
         hasInteracted: false
     };
-
-    // Indian Classical Raag Yaman / Bhairavi notes (Sa, Re, Ga, Ma, Pa, Dha, Ni, Sa)
-    const indianNotes = [
-        261.63, // Sa  (C4)
-        293.66, // Re  (D4)
-        329.63, // Ga  (E4)
-        369.99, // Tivra Ma (F#4)
-        392.00, // Pa  (G4)
-        440.00, // Dha (A4)
-        493.88, // Ni  (B4)
-        523.25, // Taar Sa (C5)
-        587.33, // Taar Re (D5)
-        659.25  // Taar Ga (E5)
-    ];
-
-    // Traditional auspicious wedding Shehnai melody curve
-    const shehnaiPattern = [0, 2, 4, 3, 4, 6, 7, 6, 7, 9, 7, 6, 4, 2, 0, 4, 7, 4, 0];
-    let melodyIndex = 0;
-
-    function playIndianShehnaiNote(freq) {
-        if (!audioState.ctx) return;
-
-        try {
-            // Main melodic reed oscillator (Shehnai/Sitar tone)
-            const osc = audioState.ctx.createOscillator();
-            const gain = audioState.ctx.createGain();
-
-            // Harmonic overtone for that rich Indian wedding Shehnai buzz
-            const subOsc = audioState.ctx.createOscillator();
-            const subGain = audioState.ctx.createGain();
-
-            osc.type = "triangle";
-            subOsc.type = "sawtooth";
-
-            const now = audioState.ctx.currentTime;
-            osc.frequency.setValueAtTime(freq, now);
-            // Meend / Gamak (gentle pitch bend characteristic of Indian classical)
-            osc.frequency.exponentialRampToValueAtTime(freq * 1.01, now + 0.15);
-            osc.frequency.exponentialRampToValueAtTime(freq, now + 0.35);
-
-            subOsc.frequency.setValueAtTime(freq * 0.5, now);
-
-            // Pluck and sustain envelope
-            gain.gain.setValueAtTime(0.0001, now);
-            gain.gain.linearRampToValueAtTime(0.065, now + 0.08);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.6);
-
-            subGain.gain.setValueAtTime(0.0001, now);
-            subGain.gain.linearRampToValueAtTime(0.015, now + 0.08);
-            subGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.2);
-
-            osc.connect(gain);
-            subOsc.connect(subGain);
-            gain.connect(audioState.ctx.destination);
-            subGain.connect(audioState.ctx.destination);
-
-            osc.start(now);
-            subOsc.start(now);
-            osc.stop(now + 1.65);
-            subOsc.stop(now + 1.65);
-        } catch (e) {
-            console.warn("Audio note error", e);
-        }
-    }
 
     function toggleMusic(forcePlay = null) {
         audioState.hasInteracted = true;
         const shouldPlay = forcePlay !== null ? forcePlay : !audioState.isPlaying;
 
-        if (shouldPlay) {
-            if (!audioState.ctx) {
-                const AudioContext = window.AudioContext || window.webkitAudioContext;
-                if (AudioContext) {
-                    audioState.ctx = new AudioContext();
+        if (weddingAudio) {
+            weddingAudio.volume = 0.55; // gentle, royal volume
+            if (shouldPlay) {
+                const playPromise = weddingAudio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        audioState.isPlaying = true;
+                        document.body.classList.add("music-playing");
+                        showToast("🎶 मंगल शहनाई धुन (Shehnai Music Playing)");
+                    }).catch(err => {
+                        console.warn("Audio play blocked or pending user gesture:", err);
+                        audioState.isPlaying = false;
+                        document.body.classList.remove("music-playing");
+                    });
                 }
+            } else {
+                weddingAudio.pause();
+                audioState.isPlaying = false;
+                document.body.classList.remove("music-playing");
+                showToast("🔇 Music paused");
             }
-
-            if (audioState.ctx && audioState.ctx.state === "suspended") {
-                audioState.ctx.resume();
-            }
-
-            audioState.isPlaying = true;
-            document.body.classList.add("music-playing");
-
-            if (!audioState.timer) {
-                melodyIndex = 0;
-                audioState.timer = setInterval(() => {
-                    if (audioState.isPlaying && audioState.ctx) {
-                        const noteIdx = shehnaiPattern[melodyIndex % shehnaiPattern.length];
-                        playIndianShehnaiNote(indianNotes[noteIdx]);
-                        melodyIndex++;
-                    }
-                }, 440);
-            }
-            showToast("🎶 मंगल शहनाई धुन (Shehnai Music Playing)");
-        } else {
-            audioState.isPlaying = false;
-            document.body.classList.remove("music-playing");
-            if (audioState.timer) {
-                clearInterval(audioState.timer);
-                audioState.timer = null;
-            }
-            showToast("🔇 Music muted");
         }
     }
 
@@ -235,6 +156,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (musicToggle) {
         musicToggle.addEventListener("click", () => toggleMusic());
     }
+
+    // Auto-pause if user minimizes/switches tab, resume if playing
+    document.addEventListener("visibilitychange", () => {
+        if (!weddingAudio) return;
+        if (document.hidden && audioState.isPlaying) {
+            weddingAudio.pause();
+        } else if (!document.hidden && audioState.isPlaying) {
+            weddingAudio.play().catch(() => {});
+        }
+    });
 
 
     /* ========================================================
