@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "DTSTART:20270117T043000Z",
                 "DTEND:20270118T183000Z",
                 "SUMMARY:॥ शुभ विवाह ॥ Mohit & Mansi Wedding Festivities",
-                "DESCRIPTION:Join us for the auspicious wedding celebrations of Mohit & Mansi! Festivities begin 17 January (Haldi, Mandha Pratibhoj, Mehndi) and Shubh Vivah on 18 January 2027 at Kaka Place.",
+                "DESCRIPTION:Join us for the auspicious wedding celebrations of Mohit & Mansi! Festivities begin 17 January at Ashok Nagar (Haldi, Mandha Pratibhoj, Mehndi) and Shubh Vivah on 18 January 2027 at Kaka Place.",
                 "LOCATION:Kaka Place",
                 "STATUS:CONFIRMED",
                 "END:VEVENT",
